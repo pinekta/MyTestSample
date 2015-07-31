@@ -1,0 +1,7 @@
+{
+    "require": {
+        "guzzle/guzzle": "~3",
+        "fabpot/goutte": "~2.0.0",
+        "thiagoalessio/tesseract_ocr": "~0.2"
+    }
+}
