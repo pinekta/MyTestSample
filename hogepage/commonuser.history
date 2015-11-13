@@ -1,0 +1,67 @@
+    1  ls
+    2  curl https://raw.githubusercontent.com/CHH/phpenv/master/bin/phpenv-install.sh | bash
+    3  git clone git://github.com/CHH/php-build.git ~/.phpenv/plugins/php-build
+    4  echo 'export PATH="$HOME/.phpenv/bin:$PATH"' >> ~/.bashrc
+    5  echo 'eval "$(phpenv init -)"' >> ~/.bashrc
+    6  exec $SHELL -l
+    7  su - root
+    8  ls
+    9  ls -a
+   10  phpenv install 5.6.15
+   11  phpenv versions
+   12  phpenv local 5.6.15
+   13  php -v
+   14  ls
+   15  ls -a
+   16  cd .php-version
+   17  ls
+   18  cd .phpenv/
+   19  ls
+   20  cd versions/
+   21  ls
+   22  cd 5.6.15/
+   23  ls
+   24  cd libexec/
+   25  ls
+   26  cd ../
+   27  ls
+   28  cd ~
+   29  ls
+   30  curl -sS https://getcomposer.org/installer | php
+   31  sudo mv composer.phar /usr/local/bin/composer
+   32  su -
+   33  composer require silex pimple twig phpunit
+   34  composer init
+   35  ls
+   36  vim composer.json
+   37  rm -rf composer.json
+   38  composer require silex
+   39  composer require silex/silex
+   40  vim composer.json
+   41  composer require twig/twig
+   42  composer require phpunit/phpunit
+   43  composer require instaclick/PHP_CodeSniffer
+   44  composer require doctrine/doctrine-bundle
+   45  composer require doctrine/doctrine-migrations-bundle
+   46  ls
+   47  su -
+   48  phpenv install -l
+   49  vim ~/.phpenv/plugins/php-build/share/php-build/default_configure_options
+   50  vim ~/.phpenv/plugins/php-build/share/php-build/definitions/5.6.15
+   51  which aspx
+   52  php install -l
+   53  phpenv install -l
+   54  phpenv install 5.6.15
+   55  yum -y make gcc
+   56  tmux
+   57  ls
+   58  php -v
+   59  cd ../
+   60  php -v
+   61  ls
+   62  cd basic/
+   63  ls
+   64  vim composer.
+   65  vim composer.json
+   66  ls
+   67  history

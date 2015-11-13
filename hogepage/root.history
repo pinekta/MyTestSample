@@ -1,0 +1,81 @@
+  834  yum -y update
+  835  njjjj
+  836  yum -y git
+  837  yum -y install git
+  838  ls
+  839  exit
+  840  ls
+  841  yum install git
+  842  exit
+  843  useradd basic
+  844  passwd basic
+  845  ls
+  846  cd basic/
+  847  ls
+  848  cd ../]
+  849  ls
+  850  cat /etc/redhat-release
+  851  git
+  852  yum check-update
+  853  tmux
+  854  exit
+  855  yum -y install gcc make
+  856  ls
+  857  exit
+  858  ls
+  859  cd /home
+  860  ls
+  861  cd basic
+  862  ls
+  863  mv composer.phar /usr/local/bin/composer
+  864  cd /usr/local/bin
+  865  ll
+  866  exit
+  867  yum -y install libxml2
+  868  yum list | grep libxml
+  869  yum -y install libxml2-devel
+  870  yum list | grep (bison|re2c)
+  871  yum list | grep /(bison|re2c)/
+  872  yum list | grep -e "(bison|re2c)+"
+  873  ]
+  874   wget http://ftp.gnu.org/gnu/bison/bison-2.7.tar.gz
+  875  tar zxvf bison-2.7.tar.gz
+  876  cd bison-2.7
+  877  ./configure
+  878  make
+  879  make install
+  880  which bison
+  881  wget http://downloads.sourceforge.net/project/re2c/re2c/0.14.3/re2c-0.14.3.tar.gz
+  882  tar zxvf re2c-0.14.3.tar.gz
+  883  cd re2c-0.14.3
+  884  ./configure
+  885  make
+  886  ls
+  887  pwd
+  888  ./configure
+  889  vim config.log
+  890  ls
+  891  cd ../
+  892  ls
+  893  rm -rf re2c-0.14.3
+  894  tar zxvf re2c-0.14.3.tar.gz
+  895  cd re2c-0.14.3
+  896  ./configure
+  897  yum -y install openssl mod_ssl
+  898  yum list | grep open | grep ssl
+  899  yum -y install openssl-devel
+  900  yum -y install libcurl
+  901  yum list | libcurl
+  902  yum list | grep libcurl
+  903  yum list | grep libcurl-devel
+  904  yum -y install libcurl-devel
+  905  yum -y install libjpeg-devel
+  906  yum -y install libpng-devel
+  907  yum -y install libmcrypt-devel
+  908  yum list | grep read
+  909  yum -y install readline-devel
+  910  yum list | grep libtidy
+  911  yum -y install libtidy-devel
+  912  yum -y install libxslt-devel
+  913  php -v
+  914  history
