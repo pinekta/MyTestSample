@@ -14,6 +14,9 @@ var createNotification = function (functionName, title, description, methodsynop
     };
     var notifications = chrome.notifications;
     notifications.create(title, option, function () {});
+    /**
+     * @todo If you clicked, past notification link pop up...
+     */
     notifications.onClicked.addListener(function () {
         window.open("http://php.net/manual/ja/" + functionName + ".php", functionName);
     });
