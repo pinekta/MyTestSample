@@ -1,0 +1,4 @@
+atw_ddns_user_admin:
+    resource: "@AtwDdnsUserAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /

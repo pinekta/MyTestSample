@@ -1,0 +1,13 @@
+/var/log/httpd/ddns/*log {
+    daily
+    rotate 90
+    compress
+    delaycompress
+    missingok
+    notifempty
+    sharedscripts
+    delaycompress
+    postrotate
+        /sbin/service httpd reload > /dev/null 2>/dev/null || true
+    endscript
+}

@@ -1,0 +1,45 @@
+{% if pageCount > 0 %}
+<div class="pager-wrapper">
+    <div class="pull-right">
+        <nav>
+            <ul class="pagination">
+
+                {% if previous is defined %}
+                    <li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                {% else %}
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                {% endif %}
+
+                {% for page in pagesInRange %}
+                    {% if page == current %}
+                        <li class="active"><a href="#">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if next is defined %}
+                    <li><a href="{{ path(route, query|merge({(pageParameterName): next})) }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                {% else %}
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+    <div class="pull-right pager-count-wrapper">
+        <span class="badge">{{ totalCount }}</span> 件
+    </div>
+
+{# 以下必要であれば適宜使用すること #}
+{#
+    {% if first is defined and current != first %}
+        <a href="{{ path(route, query|merge({(pageParameterName): first})) }}">最初のページ</a>
+    {% endif %}
+    {% if last is defined and current != last %}
+        &nbsp;&nbsp;<a href="{{ path(route, query|merge({(pageParameterName): last})) }}">最後のページ</a>
+    {% endif %}
+#}
+
+</div>
+{% endif %}

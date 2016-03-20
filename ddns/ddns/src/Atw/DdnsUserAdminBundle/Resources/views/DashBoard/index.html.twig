@@ -1,0 +1,86 @@
+{% extends 'AtwDdnsUserAdminBundle:Common:base.html.twig' %}
+
+{% block title %}ダッシュボード{% endblock %}
+{% block headerTitle %}ダッシュボード{% endblock %}
+{% block isActiveDashBoard %}active{% endblock %}
+
+{% block contents -%}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                    {% include 'AtwDdnsUserAdminBundle:Common:flashNotices.html.twig' %}
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="content">
+                                <a href="{{ path('dnsuser') }}">
+                                    <h4 class="title">DDNSユーザ一覧</h4>
+                                    <p class="category">DDNSユーザの検索・一覧表示・編集・削除を行います</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="content">
+                                <a href="{{ path('dnsuser_new') }}">
+                                    <h4 class="title">DDNSユーザ追加</h4>
+                                    <p class="category">DDNSユーザの登録を行います</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="content">
+                                <a href="{{ path('dnsuser_export') }}">
+                                    <h4 class="title">DDNSユーザエクスポート</h4>
+                                    <p class="category">登録されているDDNSユーザ全件をファイルにエクスポートします</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="content">
+                                <a href="{{ path('dnsuser_import') }}">
+                                    <h4 class="title">DDNSユーザインポート</h4>
+                                    <p class="category">お手持ちのファイルからDDNSユーザをインポートします</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {# 外部jsファイルではTwig変数を展開できないため、ここにスクリプトを記載する #}
+    <script>
+        $(function () {
+{% if app.session.flashBag.has('notices') %}
+    {% for flashMessage in app.session.flashBag.get('notices') %}
+            $.notify({
+                icon: "pe-7s-bell",
+                message: "<b>Success</b> - {{ flashMessage }}"
+            },{
+                type: 'success',
+                timer: 4000,
+                placement: {
+                    from: "top",
+                    align: "right"
+                }
+            });
+    {% endfor %}
+{% endif %}
+        });
+    </script>
+{% endblock %}

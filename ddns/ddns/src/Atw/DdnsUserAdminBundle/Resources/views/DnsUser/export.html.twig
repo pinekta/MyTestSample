@@ -1,0 +1,38 @@
+{% extends 'AtwDdnsUserAdminBundle:Common:base.html.twig' %}
+
+{% block title %}DDNSユーザエクスポート{% endblock %}
+{% block headerTitle %}DDNSユーザエクスポート{% endblock %}
+{% block isActiveDnsUserExport %}active{% endblock %}
+
+{% block contents -%}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        {% include 'AtwDdnsUserAdminBundle:Common:flashNotices.html.twig' %}
+
+                        <div class="card">
+                            <div class="content">
+
+                                {{ form_errors(form) }}
+                                {{ form_start(form, {'action':path('dnsuser_download'), 'method': 'GET'}) }}
+
+                                    <div class="row form-last-division">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">エクスポート種別</label>
+                                                {{ form_widget(form.exportType) }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

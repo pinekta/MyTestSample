@@ -1,0 +1,70 @@
+body {
+    font-family: Meiryo,"Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+}
+.sidebar .logo .simple-text,
+.navbar-collapse .logo .simple-text,
+.table th {
+    text-transform: none !important;
+}
+.required:after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+}
+.pagination {
+    margin: 0;
+}
+.site-title {
+    font-family: 'Lobster', Meiryo,"Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif, cursive !important;
+}
+.navbar-collapse .nav > li:first-child {
+    margin-top: 10px !important;
+}
+.navbar-collapse .nav > li > a {
+    padding: 15px 25px !important;
+}
+.form-last-division ~ div:before {
+    display: table;
+    content: " ";
+}
+.form-last-division ~ div:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+.next-element-form ~ form {
+    display: inline-block;
+}
+.input-criteria {
+    width: 320px;
+}
+.criteria-text-wrapper {
+    margin-right: 10px;
+}
+.criteria-button-wrapper {
+    margin-left: 10px;
+}
+.form-back-button {
+    margin-right:10px;
+}
+.pager-wrapper {
+    padding-right: 15px;
+}
+.pager-count-wrapper {
+    margin: 7px 10px 0 0;
+}
+.is-clippable span:hover {
+    color: red;
+}
+.text-bold {
+    font-weight: bold;
+}
+.sortable span:hover, .asc span:hover, .desc span:hover {
+    color: red;
+}
+.list-btn {
+    margin-right: 5px;
+}
+.icon-sort {
+    margin-left: 5px;
+}

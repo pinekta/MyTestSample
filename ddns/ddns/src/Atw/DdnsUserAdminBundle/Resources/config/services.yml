@@ -1,0 +1,34 @@
+parameters:
+    LIST_DISPLAY_LIMIT: 10
+    LIST_DISPLAY_PAGE_RANGE: 5
+
+services:
+    dnsuser_manager_interface:
+        class: Atw\DdnsUserAdminBundle\Service\DnsUser\DnsUserManager
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @validator
+
+    htpasswd_manager_interface:
+        class: Atw\DdnsUserAdminBundle\Service\Htpasswd\HtpasswdManager
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - %htpasswd_filename%
+            - %htpasswd_tmp_filename%
+
+    datetime_format_extension:
+        class: Atw\DdnsUserAdminBundle\Twig\DateTimeFormatExtension
+        tags:
+            - { name: twig.extension }
+
+    get_dnsuser_list_extension:
+        class: Atw\DdnsUserAdminBundle\Twig\GetDnsUserListExtension
+        arguments:
+            - @doctrine.orm.default_entity_manager
+        tags:
+            - { name: twig.extension }
+
+    mask_extension:
+        class: Atw\DdnsUserAdminBundle\Twig\MaskExtension
+        tags:
+            - { name: twig.extension }

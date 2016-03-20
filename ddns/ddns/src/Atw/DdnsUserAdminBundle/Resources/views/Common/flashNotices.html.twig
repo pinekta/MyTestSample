@@ -1,0 +1,33 @@
+{#
+{% if app.session.flashbag.has('notices') %}
+    {% for flashmessage in app.session.flashbag.get('notices') %}
+        <div class="flash-notice">
+            <p class="strong">{{ flashmessage|nl2br }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+#}
+
+{% if app.session.flashBag.has('warnings') %}
+    {% for flashMessage in app.session.flashBag.get('warnings') %}
+        <div class="flash-warning">
+            <p class="strong">{{ flashMessage|nl2br }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if app.session.flashBag.has('errors') %}
+    {% for flashMessage in app.session.flashBag.get('errors') %}
+        {# TODO: ファイル名はflashNoticesTag と flashNoticesDialog に分けるべき #}
+        {# TODO: Warning のときも動くようにすること #}
+        <div class="card card-plain">
+            <div class="alert alert-danger alert-with-icon" data-notify="container">
+                <button type="button" aria-hidden="true" class="close">×</button>
+                <span data-notify="icon" class="pe-7s-attention"></span>
+                <span data-notify="message">
+                    {{ flashMessage|join('\n')|nl2br }}
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

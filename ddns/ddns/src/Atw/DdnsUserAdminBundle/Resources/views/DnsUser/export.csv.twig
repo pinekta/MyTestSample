@@ -1,0 +1,4 @@
+"No.","ユーザ名","パスワード","管理番号","コメント","暗号化方式","作成日時","更新日時","管理画面URL"
+{% for entity in entities %}
+{{ entity.id|raw }},"{{ entity.userName|raw }}","{{ entity.password|raw }}","{{ entity.controlNo|raw }}","{{ entity.comment|raw }}",{{ entity.encryptType|raw }},"{{ entity.createdAt|raw|datetime_format }}","{{ entity.updatedAt|raw|datetime_format }}","{{ attribute(entity, 'generateAdminURL', [entity.userName])|raw }}"
+{% endfor %}

@@ -1,0 +1,97 @@
+{% spaceless %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}DDNS ユーザ管理システム{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{{ asset('bundles/atwddnsuseradmin/img/favicon.ico') }}">
+        {# CSS gulpで各CSSをbundle.min.cssにminify and 結合しています #}
+        <link href="{{ asset('bundles/atwddnsuseradmin/css/bundle.min.css') }}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Lobster:400,700,300' rel='stylesheet'>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="sidebar" data-color="red" data-image="{{ asset('bundles/atwddnsuseradmin/img/sidebar-' ~ random(5) ~ '.jpg') }}">
+                <div class="sidebar-wrapper">
+                    <div class="logo">
+                        <a href="{{ path('dashboard') }}" class="simple-text site-title">
+                            DDNS User Manager
+                        </a>
+                    </div>
+
+                    <ul class="nav">
+                        <li class="{% block isActiveDashBoard %}{% endblock %}">
+                            <a href="{{ path('dashboard') }}">
+                                <i class="pe-7s-global"></i>
+                                <p>ダッシュボード</p>
+                            </a>
+                        </li>
+                        <li class="{% block isActiveDnsUserList %}{% endblock %}">
+                            <a href="{{ path('dnsuser') }}">
+                                <i class="pe-7s-note2"></i>
+                                <p>DDNSユーザ一覧</p>
+                            </a>
+                        </li>
+                        <li class="{% block isActiveDnsUserNew %}{% endblock %}">
+                            <a href="{{ path('dnsuser_new') }}">
+                                <i class="pe-7s-add-user"></i>
+                                <p>DDNSユーザ追加</p>
+                            </a>
+                        </li> 
+                        <li class="{% block isActiveDnsUserExport %}{% endblock %}">
+                            <a href="{{ path('dnsuser_export') }}">
+                                <i class="pe-7s-cloud-download"></i>
+                                <p>DDNSユーザエクスポート</p>
+                            </a>
+                        </li> 
+                        <li class="{% block isActiveDnsUserImport %}{% endblock %}">
+                            <a href="{{ path('dnsuser_import') }}">
+                                <i class="pe-7s-cloud-upload"></i>
+                                <p>DDNSユーザインポート</p>
+                            </a>
+                        </li> 
+                    </ul> 
+                </div>
+            </div>
+
+            <div class="main-panel">
+                <nav class="navbar navbar-default navbar-fixed">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">{% block headerTitle %}{% endblock %}</a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                        </div>
+                    </div>
+                </nav>
+
+                {% block contents %}{% endblock %}
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <p class="copyright pull-right">
+                        Copyright &copy; 2015 <a href="https://atworks.co.jp">A.T.WORKS</a>, Inc. All Rights Reserved.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+
+    {# JS gulpで必須なスクリプトファイルを結合しています #}
+    <script src="{{ asset('bundles/atwddnsuseradmin/js/main.min.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+
+</html>
+{% endspaceless %}

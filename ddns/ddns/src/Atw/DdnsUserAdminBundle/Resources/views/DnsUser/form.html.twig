@@ -1,0 +1,92 @@
+{% if entity.id %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">No.</label>
+            <input type="text" class="form-control" disabled="disabled" value="{{ entity.id }}">
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">ユーザ名</label>
+            {{ form_widget(form.userName) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+{% if entity.id %}
+    <div class="col-md-6 password-label">
+        <div class="form-group">
+            <label>パスワード</label>
+            <div id="password-mask">{{ entity.password|mask(4) }}</div>
+            <input type="hidden" id="non-mask-password" value="{{ entity.password }}">
+        </div>
+    </div>
+{% endif %}
+    <div class="col-md-6 password-input">
+        <div class="form-group">
+            <label {% if entity.id == "" %}class="required"{% endif %}>パスワード</label>
+            {{ form_widget(form.password.first) }}
+        </div>
+    </div>
+    <div class="col-md-6 password-input">
+        <div class="form-group">
+            <label {% if entity.id == "" %}class="required"{% endif %}>パスワード確認</label>
+            {{ form_widget(form.password.second) }}
+        </div>
+    </div>
+</div>
+{% if entity.id %}
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" id="button-password-display" class="btn btn-default btn-fill">パスワード表示</button>
+        <button type="button" id="button-password-change" class="btn btn-info btn-fill">パスワード変更</button>
+    </div>
+</div>
+{% endif %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>管理番号</label>
+            {{ form_widget(form.controlNo) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>コメント</label>
+            {{ form_widget(form.comment) }}
+        </div>
+    </div>
+</div>
+<div class="row {% if not entity.id %}form-last-division{% endif %}">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">暗号化方式</label>
+            {{ form_widget(form.encryptType) }}
+        </div>
+    </div>
+</div>
+
+{% if entity.id %}
+<div class="row form-last-division">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>作成日時</label>
+            <div>{{ entity.createdAt|datetime_format }}</div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>更新日時</label>
+            <div>{{ entity.updatedAt|datetime_format }}</div>
+        </div>
+    </div>
+</div>
+<a id="back" href="{{ path('dnsuser') }}" class="btn btn-default btn-fill pull-left form-last-division form-back-button">戻る</a>
+{% endif %}

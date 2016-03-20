@@ -1,0 +1,21 @@
+{% extends 'AtwDdnsUserAdminBundle:Common:base.html.twig' %}
+
+{% block title %}{{ status_code }} {{ status_text }}{% endblock %}
+{% block headerTitle %}{{ status_code }} {{ status_text }}{% endblock %}
+
+{% block contents -%}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="jumbotron">
+                        <h1>{% block errorTitle %}{% endblock %}</h1>
+                        <p>{% block errorMessage %}{% endblock %}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{{ form_widget(form._token) }}
+
+{% if entity.id %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">No.</label>
+            <div>{{ entity.id }}</div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">ユーザ名</label>
+            <div>{{ entity.userName }}</div>
+            {{ form_widget(form.userName, {type: 'hidden'}) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 password-input">
+        <div class="form-group">
+            <label {% if entity.id == "" %}class="required"{% endif %}>パスワード</label>
+            <div id="password-mask">{{ entity.password|mask(4) }}</div>
+            <input type="hidden" id="non-mask-password" value="{{ entity.password }}">
+            {{ form_widget(form.password.first, {type: 'hidden'}) }}
+            {{ form_widget(form.password.second, {type: 'hidden'}) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" id="button-password-display" class="btn btn-default btn-fill">パスワード表示</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>管理番号</label>
+            <div>{{ entity.controlNo }}</div>
+            {{ form_widget(form.controlNo, {type: 'hidden'}) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>コメント</label>
+            <div>{{ entity.comment }}</div>
+            {{ form_widget(form.comment, {type: 'hidden'}) }}
+        </div>
+    </div>
+</div>
+<div class="row form-last-division">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="required">暗号化方式</label>
+            <div>{{ constant('ENCRYPT_TYPE_LIST', entity)[entity.encryptType] }}</div>
+            {{ form_widget(form.encryptType, {'attr': {'class': 'hide'} }) }}
+        </div>
+    </div>
+</div>
+
+<button type="submit" id="back" class="btn btn-default btn-fill pull-left form-last-division form-back-button">戻る</button>

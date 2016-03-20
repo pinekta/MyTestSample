@@ -1,0 +1,33 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        # 暗号化前の値は本システムのドメイン名
+                        # 下記のbcryptのサイトで暗号化
+                        # https://www.dailycred.com/article/bcrypt-calculator
+                        password: hogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge
+                        roles: 'ROLE_ADMIN'
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        secured_area:
+            pattern: ^/
+            http_basic:
+                realm: "Secured Area"
+
+    access_control:
+        - { path: ^/, roles: ROLE_ADMIN }
