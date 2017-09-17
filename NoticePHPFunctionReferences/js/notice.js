@@ -14,11 +14,26 @@ var createNotification = function (functionName, title, description, methodsynop
     };
     var notifications = chrome.notifications;
     notifications.create(title, option, function () {});
-    /**
-     * @todo If you clicked, past notification link pop up...
-     */
-    notifications.onClicked.addListener(function () {
-        window.open("http://php.net/manual/ja/" + functionName + ".php", functionName);
+    notifications.onClicked.addListener(function (clickedFunctionName) {
+        var splits = functionName.split('.');
+        var type = splits[0];
+        var splitedFunctionName = splits[1].replace(/-/g, '_');
+        if (type != 'function') {
+            if (type == 'serializable' || type == 'exception') {
+                splitedFunctionName = (type.charAt(0).toUpperCase() + type.slice(1)) + '::' + splitedFunctionName;
+            } else if (type == "dateinterval") {
+                splitedFunctionName = 'DateInterval::' + splitedFunctionName;
+            } else if (type == "dateperiod") {
+                splitedFunctionName = 'DatePeriod::' + splitedFunctionName;
+            } else if (type == "datetime") {
+                splitedFunctionName = 'DateTime::' + splitedFunctionName;
+            } else if (type == "datetimezone") {
+                splitedFunctionName = 'DateTimeZone::' + splitedFunctionName;
+            }
+        }
+        if (clickedFunctionName == splitedFunctionName) {
+            window.open("http://php.net/manual/ja/" + functionName + ".php", functionName);
+        }
     });
 }
 
